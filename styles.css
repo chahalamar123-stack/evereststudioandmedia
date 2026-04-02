@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
   --bg: #050706;
   --bg-soft: #0a0d0c;
   --surface: rgba(11, 15, 14, 0.82);
@@ -20,6 +21,26 @@
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 18px;
+=======
+  --forest: #355d2c;
+  --forest-deep: #23401d;
+  --forest-soft: #4c7143;
+  --forest-muted: #6f8a68;
+  --cream: #f7f3eb;
+  --mist: #edf1ea;
+  --pale-green: #dde7d8;
+  --sage: #a5b69c;
+  --charcoal: #20261d;
+  --text-soft: #586351;
+  --white: #ffffff;
+  --border: rgba(23, 58, 45, 0.12);
+  --border-strong: rgba(23, 58, 45, 0.18);
+  --shadow: 0 24px 60px rgba(16, 41, 31, 0.12);
+  --shadow-soft: 0 14px 32px rgba(16, 41, 31, 0.08);
+  --shadow-lift: 0 28px 70px rgba(16, 41, 31, 0.15);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   --radius-sm: 14px;
   --container: 1240px;
   --nav-height: 92px;
@@ -42,15 +63,25 @@ body {
   font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.65;
   background:
+<<<<<<< HEAD
     radial-gradient(circle at 14% 12%, rgba(26, 98, 71, 0.24), transparent 24rem),
     radial-gradient(circle at 84% 10%, rgba(184, 154, 101, 0.11), transparent 19rem),
     linear-gradient(180deg, #070909 0%, #060806 38%, #050706 100%);
+=======
+    radial-gradient(circle at top left, rgba(220, 232, 221, 0.78), transparent 34%),
+    radial-gradient(circle at 80% 20%, rgba(83, 114, 74, 0.11), transparent 24%),
+    linear-gradient(180deg, #fcfbf8 0%, #f3efe7 100%);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 body::before,
 body::after {
   content: "";
   position: fixed;
+<<<<<<< HEAD
   inset: 0;
   pointer-events: none;
   z-index: -1;
@@ -74,6 +105,30 @@ body::after {
 ::selection {
   color: var(--text);
   background: rgba(29, 96, 70, 0.72);
+=======
+  inset: auto;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(18px);
+}
+
+body::before {
+  top: 8rem;
+  right: -4rem;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: rgba(164, 186, 157, 0.18);
+}
+
+body::after {
+  left: -3rem;
+  bottom: 10rem;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: rgba(53, 93, 44, 0.08);
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 img {
@@ -154,6 +209,7 @@ textarea {
 }
 
 .site-shell {
+<<<<<<< HEAD
   position: relative;
 }
 
@@ -346,13 +402,25 @@ p {
 
 .button-secondary:hover {
   border-color: rgba(184, 154, 101, 0.28);
+=======
+  min-height: 100vh;
+  animation: pageFade 0.8s ease both;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .site-header {
   position: sticky;
   top: 0;
+<<<<<<< HEAD
   z-index: 60;
   padding: 1rem 0 0;
+=======
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(251, 250, 247, 0.84);
+  border-bottom: 1px solid rgba(23, 58, 45, 0.08);
+  box-shadow: 0 10px 24px rgba(16, 41, 31, 0.04);
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .nav-shell {
@@ -387,6 +455,7 @@ body.nav-open .nav-shell {
 .brand-logo-image {
   width: clamp(10.75rem, 18vw, 15rem);
   height: auto;
+<<<<<<< HEAD
   filter:
     drop-shadow(0 10px 24px rgba(0, 0, 0, 0.26))
     brightness(1.02);
@@ -426,6 +495,15 @@ body.nav-open .nav-toggle span:last-child {
   display: flex;
   align-items: center;
   gap: 1rem;
+=======
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand:hover .brand-logo {
+  transform: translateY(-2px);
+  filter: saturate(1.05);
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .site-nav {
@@ -435,6 +513,7 @@ body.nav-open .nav-toggle span:last-child {
 }
 
 .site-nav a {
+<<<<<<< HEAD
   position: relative;
   padding: 0.72rem 0.92rem;
   color: rgba(247, 240, 226, 0.76);
@@ -461,6 +540,37 @@ body.nav-open .nav-toggle span:last-child {
 .site-nav a:hover,
 .site-nav a.is-current {
   color: var(--text);
+=======
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  color: var(--forest);
+  font-size: 0.96rem;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  background: var(--pale-green);
+  box-shadow: inset 0 0 0 1px rgba(53, 93, 44, 0.08);
+}
+
+.site-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.site-nav .nav-cta {
+  background: var(--forest-muted);
+  color: var(--white);
+  border-color: var(--forest-muted);
+  box-shadow: 0 12px 22px rgba(35, 64, 29, 0.16);
+}
+
+.site-nav .nav-cta:hover,
+.site-nav .nav-cta.active {
+  background: var(--forest-deep);
+  color: var(--white);
+  box-shadow: 0 16px 26px rgba(35, 64, 29, 0.2);
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .site-nav a:hover::after,
@@ -468,8 +578,38 @@ body.nav-open .nav-toggle span:last-child {
   transform: scaleX(1);
 }
 
+<<<<<<< HEAD
 .nav-cta {
   white-space: nowrap;
+=======
+.page-main > * {
+  opacity: 0;
+  animation: riseIn 0.75s ease forwards;
+}
+
+.page-main > *:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.page-main > *:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.page-main > *:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.page-main > *:nth-child(4) {
+  animation-delay: 0.32s;
+}
+
+.page-main > *:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.section {
+  padding: 2.75rem 0;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .hero-section {
@@ -491,6 +631,7 @@ body.nav-open .nav-toggle span:last-child {
   padding: clamp(1rem, 2vw, 2rem) 0;
 }
 
+<<<<<<< HEAD
 .hero-summary {
   max-width: 38rem;
 }
@@ -499,11 +640,96 @@ body.nav-open .nav-toggle span:last-child {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
+=======
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: var(--forest-deep);
+}
+
+h1 {
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+h1 + .hero-callout {
+  margin-top: calc(1.9rem + 15px);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-soft);
+}
+
+.lede {
+  font-size: 1.15rem;
+  max-width: 38rem;
+}
+
+.section-head .services-lede {
+  font-size: 1.3rem;
+  line-height: 1.68;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: stretch;
+  padding-top: 2.5rem;
+}
+
+.hero-card,
+.feature-panel,
+.quote-card,
+.service-card,
+.portfolio-card,
+.contact-card,
+.detail-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.hero-card {
+  padding: clamp(2rem, 5vw, 4rem);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(233, 240, 231, 0.74)),
+    var(--white);
+}
+
+.hero-logo {
+  width: min(26rem, 100%);
+  margin-bottom: 1.5rem;
+}
+
+.hero-card p + p {
+  margin-top: 1rem;
+}
+
+.hero-meta {
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+<<<<<<< HEAD
 .trust-chip,
 .service-tag,
 .result-tags span,
@@ -513,6 +739,28 @@ body.nav-open .nav-toggle span:last-child {
   align-items: center;
   gap: 0.45rem;
   padding: 0.72rem 0.95rem;
+=======
+.hero-meta-copy {
+  margin: 0 0 0.15rem;
+  color: var(--forest);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero-meta-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.tag,
+.placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
@@ -523,6 +771,7 @@ body.nav-open .nav-toggle span:last-child {
   text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 .hero-stage {
   position: relative;
   min-height: 42rem;
@@ -534,6 +783,25 @@ body.nav-open .nav-toggle span:last-child {
     radial-gradient(circle at 22% 16%, rgba(184, 154, 101, 0.12), transparent 20%),
     linear-gradient(145deg, rgba(7, 10, 10, 0.94), rgba(14, 18, 17, 0.92));
   box-shadow: var(--shadow-strong);
+=======
+.tag {
+  background: var(--forest);
+  color: var(--white);
+  border: 1px solid transparent;
+  font-weight: 700;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  min-height: 2.9rem;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 12px 20px rgba(35, 64, 29, 0.14);
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  background: var(--forest-deep);
+  box-shadow: 0 16px 28px rgba(35, 64, 29, 0.18);
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .hero-stage::after {
@@ -545,6 +813,7 @@ body.nav-open .nav-toggle span:last-child {
   pointer-events: none;
 }
 
+<<<<<<< HEAD
 .hero-stage-core {
   position: absolute;
   inset: 0;
@@ -669,6 +938,35 @@ body.nav-open .nav-toggle span:last-child {
 }
 
 .sector-stack {
+=======
+.hero-callout {
+  display: block;
+  background: rgba(255, 255, 255, 0.98);
+  color: var(--forest-deep);
+  border: 1px solid rgba(28, 36, 31, 0.12);
+  border-left: 1px solid rgba(28, 36, 31, 0.12);
+  border-radius: 26px;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  font-size: 1.12rem;
+  line-height: 2.05;
+  padding: 1.6rem 1.9rem;
+  margin-top: 1.9rem;
+  margin-bottom: 0.9rem;
+  max-width: 50rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero-card:hover .hero-callout {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.hero-side {
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   display: grid;
   gap: 0.6rem;
 }
@@ -733,8 +1031,15 @@ body.nav-open .nav-toggle span:last-child {
   align-items: center;
   min-height: 100%;
   background:
+<<<<<<< HEAD
     radial-gradient(circle at 24% 22%, rgba(184, 154, 101, 0.12), transparent 22%),
     linear-gradient(180deg, rgba(16, 22, 20, 0.94), rgba(8, 11, 10, 0.98));
+=======
+    linear-gradient(180deg, rgba(23, 58, 45, 0.97), rgba(16, 41, 31, 0.94));
+  color: rgba(255, 255, 255, 0.82);
+  overflow: hidden;
+  position: relative;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .statement-copy {
@@ -745,9 +1050,18 @@ body.nav-open .nav-toggle span:last-child {
   letter-spacing: -0.03em;
 }
 
+<<<<<<< HEAD
 .editorial-copy {
   display: grid;
   gap: 1rem;
+=======
+.feature-panel h3,
+.feature-panel p,
+.feature-panel .eyebrow,
+.feature-panel .stat-label,
+.feature-panel .stat-value {
+  color: inherit;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .editorial-facts {
@@ -757,11 +1071,20 @@ body.nav-open .nav-toggle span:last-child {
   margin-top: 1.75rem;
 }
 
+<<<<<<< HEAD
 .fact-card {
   padding: 1rem 1.05rem;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
+=======
+.stat-box {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .fact-label,
@@ -775,9 +1098,22 @@ body.nav-open .nav-toggle span:last-child {
   margin-top: 0.45rem;
 }
 
+<<<<<<< HEAD
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+=======
+.feature-panel .stat-box .stat-label {
+  font-size: 0.94rem;
+}
+
+.mini-card {
+  padding: 1.5rem;
+}
+
+.button-row {
+  display: flex;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   gap: 1rem;
 }
 
@@ -845,6 +1181,7 @@ body.nav-open .nav-toggle span:last-child {
   color: var(--gold);
   font-size: 0.78rem;
   font-weight: 700;
+<<<<<<< HEAD
 }
 
 .service-panel h3 {
@@ -1161,6 +1498,41 @@ body.nav-open .nav-toggle span:last-child {
 }
 
 .retainer-content {
+=======
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--forest);
+  color: var(--white);
+  box-shadow: 0 16px 28px rgba(35, 64, 29, 0.15);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--forest);
+  border-color: rgba(23, 58, 45, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+.button-primary:hover {
+  background: var(--forest-deep);
+  box-shadow: 0 18px 34px rgba(35, 64, 29, 0.2);
+}
+
+.button-secondary:hover {
+  border-color: rgba(23, 58, 45, 0.28);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.grid-3,
+.grid-2,
+.grid-1 {
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   display: grid;
   gap: 1.4rem;
 }
@@ -1171,12 +1543,240 @@ body.nav-open .nav-toggle span:last-child {
   gap: 0.85rem;
 }
 
+<<<<<<< HEAD
 .retainer-item,
 .detail-strip {
   padding: 1rem 1.05rem;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   background: rgba(255, 255, 255, 0.035);
+=======
+.grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.service-card,
+.quote-card,
+.portfolio-card,
+.detail-card,
+.contact-card {
+  padding: 1.8rem;
+}
+
+.service-card:hover,
+.quote-card:hover,
+.portfolio-card:hover,
+.detail-card:hover,
+.contact-card:hover,
+.hero-card:hover,
+.feature-panel:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--border-strong);
+}
+
+.icon-wrap {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  background: var(--mist);
+  color: var(--forest);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover .icon-wrap,
+.detail-card:hover .icon-wrap {
+  transform: translateY(-3px) scale(1.03);
+  background: rgba(53, 93, 44, 0.1);
+}
+
+.service-card p,
+.quote-card p,
+.portfolio-card p,
+.detail-card p {
+  margin-top: 0.9rem;
+}
+
+.service-card h3 {
+  margin-bottom: 0.95rem;
+}
+
+.service-card h3 + p {
+  margin-top: 0;
+}
+
+.service-title-spaced {
+  margin-bottom: 1.6rem;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.2rem;
+  color: var(--forest);
+  font-weight: 700;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.service-link:hover {
+  gap: 0.7rem;
+  color: var(--forest-deep);
+}
+
+.quote-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.quote-mark {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--sage);
+}
+
+.quote-attribution {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.portfolio-card {
+  overflow: hidden;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.portfolio-media {
+  min-height: 9.5rem;
+  padding: 0.85rem 1.25rem;
+  background:
+    linear-gradient(135deg, rgba(23, 58, 45, 0.92), rgba(61, 92, 79, 0.9)),
+    var(--forest);
+  color: rgba(255, 255, 255, 0.88);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+}
+
+.portfolio-media .eyebrow,
+.portfolio-media h3,
+.portfolio-media p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.portfolio-media h3 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+}
+
+.portfolio-media::after {
+  content: "";
+  position: absolute;
+  inset: auto -1.5rem -1.5rem auto;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.portfolio-content {
+  padding: 1.65rem 1.7rem 1.85rem;
+}
+
+.portfolio-content h3 {
+  margin-bottom: 0.8rem;
+}
+
+.portfolio-content p {
+  max-width: 54rem;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.results span {
+  padding: 0.55rem 0.8rem;
+  background: var(--cream);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  color: var(--forest-soft);
+}
+
+.split-banner {
+  padding: clamp(2rem, 5vw, 3rem);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(120deg, rgba(23, 58, 45, 0.98), rgba(30, 73, 57, 0.96)),
+    var(--forest);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.split-banner h2,
+.split-banner p {
+  color: inherit;
+}
+
+.split-banner .eyebrow {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.banner-form {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.banner-form-label {
+  flex: 1 1 18rem;
+}
+
+.banner-form input {
+  min-height: 3.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.96);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.banner-form input:focus {
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.12);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.detail-card ul {
+  padding-left: 1.1rem;
+  margin: 1rem 0 0;
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   color: var(--text-soft);
 }
 
@@ -1287,9 +1887,32 @@ body.nav-open .nav-toggle span:last-child {
   margin-top: 1.65rem;
 }
 
+<<<<<<< HEAD
 .support-grid,
 .detail-grid,
 .contact-grid {
+=======
+.contact-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-list-item {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: var(--cream);
+  border: 1px solid rgba(53, 93, 44, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-list-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+form {
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
   display: grid;
   gap: 1rem;
 }
@@ -1386,9 +2009,60 @@ label {
   font-weight: 700;
 }
 
+<<<<<<< HEAD
 .form-stack {
   display: grid;
   gap: 1rem;
+=======
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid rgba(23, 58, 45, 0.15);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--charcoal);
+  padding: 0.95rem 1rem;
+  border-radius: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--forest-soft);
+  box-shadow: 0 0 0 4px rgba(47, 90, 74, 0.12);
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateY(-1px);
+}
+
+textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.form-note {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+
+.site-footer {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  padding: 0 0 2.5rem;
+}
+
+.footer-card {
+  padding: 1.5rem 1.6rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.78);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-soft);
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
 }
 
 .form-note,
@@ -1397,6 +2071,7 @@ label {
   color: rgba(214, 207, 194, 0.72);
 }
 
+<<<<<<< HEAD
 .form-status {
   min-height: 1.4rem;
 }
@@ -1426,6 +2101,50 @@ label {
   .contact-grid,
   .why-grid,
   .editorial-grid {
+=======
+.shape-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.shape-item {
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.54);
+  border: 1px solid rgba(53, 93, 44, 0.08);
+  color: var(--forest-deep);
+  box-shadow: 0 10px 20px rgba(16, 41, 31, 0.05);
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .split-banner,
+  .contact-layout,
+  .grid-2,
+  .grid-3,
+  .form-grid {
+>>>>>>> e169e1c (Upload Everest Studio & Media site)
     grid-template-columns: 1fr;
   }
 
@@ -1459,6 +2178,20 @@ label {
   .process-timeline,
   .services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-meta-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card:hover,
+  .quote-card:hover,
+  .portfolio-card:hover,
+  .detail-card:hover,
+  .contact-card:hover,
+  .hero-card:hover,
+  .feature-panel:hover {
+    transform: translateY(-3px);
   }
 }
 
