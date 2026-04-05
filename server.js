@@ -4,11 +4,9 @@ const session = require("express-session");
 const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = 3000;
 const PUBLIC_DIR = path.join(__dirname, "public");
 const DB_PATH = path.join(__dirname, "inquiries.db");
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "amar";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "EverestAdmin!2026";
 
 const db = new sqlite3.Database(DB_PATH);
 
@@ -61,6 +59,8 @@ app.use(
   })
 );
 
+app.use(express.static(PUBLIC_DIR));
+
 function isNonEmpty(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
@@ -72,36 +72,6 @@ function requireLogin(req, res, next) {
 
   return next();
 }
-
-function requireLoginPage(req, res, next) {
-  if (!req.session.loggedIn) {
-    return res.redirect("/login.html");
-  }
-
-  return next();
-}
-
-app.get("/admin", (req, res) => {
-  if (req.session.loggedIn) {
-    return res.redirect("/admin/dashboard");
-  }
-
-  return res.redirect("/login.html");
-});
-
-app.get("/login", (_req, res) => {
-  return res.redirect("/login.html");
-});
-
-app.get("/admin/dashboard", requireLoginPage, (_req, res) => {
-  return res.sendFile(path.join(PUBLIC_DIR, "admin.html"));
-});
-
-app.get("/admin.html", requireLoginPage, (_req, res) => {
-  return res.sendFile(path.join(PUBLIC_DIR, "admin.html"));
-});
-
-app.use(express.static(PUBLIC_DIR));
 
 app.post("/submit-inquiry", (req, res) => {
   const { name, phone, email, message } = req.body;
@@ -126,7 +96,7 @@ app.post("/submit-inquiry", (req, res) => {
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
 
-  if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+  if (username === "admin" && password === "password123") {
     req.session.loggedIn = true;
     return res.json({ success: true });
   }
