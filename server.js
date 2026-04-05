@@ -4,11 +4,9 @@ const session = require("express-session");
 const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = 3000;
 const PUBLIC_DIR = path.join(__dirname, "public");
 const DB_PATH = path.join(__dirname, "inquiries.db");
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "password123";
 
 const db = new sqlite3.Database(DB_PATH);
 
@@ -98,7 +96,7 @@ app.post("/submit-inquiry", (req, res) => {
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
 
-  if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+  if (username === "admin" && password === "password123") {
     req.session.loggedIn = true;
     return res.json({ success: true });
   }
