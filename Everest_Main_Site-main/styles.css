@@ -872,6 +872,185 @@ textarea {
   box-shadow: 0 10px 20px rgba(16, 41, 31, 0.05);
 }
 
+.admin-auth-shell {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.auth-panel,
+.admin-header,
+.admin-card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.auth-panel {
+  width: min(100%, 34rem);
+  padding: 2rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.admin-shell {
+  padding-top: 4rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1.6rem;
+}
+
+.admin-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-card {
+  padding: 1.4rem 1.5rem;
+}
+
+.admin-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.admin-card-head time {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.admin-email {
+  margin-top: 0.6rem;
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.admin-phone {
+  margin-top: 0.75rem;
+  color: var(--forest-deep);
+  font-weight: 600;
+}
+
+.admin-message {
+  white-space: pre-wrap;
+}
+
+[data-login-status][data-state="error"],
+[data-inquiry-status][data-state="error"] {
+  color: #9b2c2c;
+}
+
+[data-login-status][data-state="success"],
+[data-inquiry-status][data-state="success"] {
+  color: var(--forest);
+}
+
+[data-login-status][data-state="pending"],
+[data-inquiry-status][data-state="pending"] {
+  color: var(--forest-soft);
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .split-banner,
+  .contact-layout,
+  .grid-2,
+  .grid-3,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .hero-meta-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header,
+  .admin-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-card:hover,
+  .quote-card:hover,
+  .portfolio-card:hover,
+  .detail-card:hover,
+  .contact-card:hover,
+  .hero-card:hover,
+  .feature-panel:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-wrap {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .brand-logo {
+    width: 10rem;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .page-main {
+    padding-top: 2rem;
+  }
+
+  .hero-card,
+  .service-card,
+  .quote-card,
+  .detail-card,
+  .contact-card {
+    padding: 1.4rem;
+  }
+
+  h1 {
+    font-size: clamp(2.9rem, 15vw, 4.6rem);
+  }
+}
+
 @keyframes pageFade {
   from {
     opacity: 0;
