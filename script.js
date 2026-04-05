@@ -48,7 +48,7 @@ async function handleInquiryForm() {
       }
 
       form.reset();
-      status.textContent = "Inquiry received. We will be in touch soon.";
+      status.textContent = "Inquiry received. It is saved to your dashboard and you can reply from Amar@EverestStudioandmedia.com.";
       status.dataset.state = "success";
     } catch (error) {
       status.textContent = error.message;
@@ -95,7 +95,7 @@ async function handleLoginForm() {
         throw new Error(payload.error || "Login failed.");
       }
 
-      window.location.href = "/admin.html";
+      window.location.href = "/admin";
     } catch (error) {
       status.textContent = error.message;
       status.dataset.state = "error";
@@ -107,6 +107,7 @@ async function loadAdminDashboard() {
   const list = document.querySelector("[data-inquiries-list]");
   const empty = document.querySelector("[data-inquiries-empty]");
   const logoutButton = document.querySelector("[data-logout-button]");
+  const refreshButton = document.querySelector("[data-refresh-button]");
 
   if (!list || !empty || !logoutButton) {
     return;
@@ -116,51 +117,82 @@ async function loadAdminDashboard() {
     window.location.href = "/logout";
   });
 
-  try {
-    const response = await fetch("/admin/inquiries", {
-      headers: {
-        Accept: "application/json"
+  async function renderInquiries() {
+    if (refreshButton) {
+      refreshButton.disabled = true;
+      refreshButton.textContent = "Refreshing...";
+    }
+
+    try {
+      const response = await fetch("/admin/inquiries", {
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (response.status === 403) {
+        window.location.href = "/login.html";
+        return;
       }
-    });
 
-    if (response.status === 403) {
-      window.location.href = "/login.html";
-      return;
-    }
+      const payload = await response.json();
 
-    const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error || "Unable to load inquiries.");
+      }
 
-    if (!response.ok) {
-      throw new Error(payload.error || "Unable to load inquiries.");
-    }
+      if (!payload.inquiries.length) {
+        empty.hidden = false;
+        empty.textContent = "No inquiries yet.";
+        list.innerHTML = "";
+        return;
+      }
 
-    if (!payload.inquiries.length) {
+      empty.hidden = true;
+      list.innerHTML = payload.inquiries
+        .map(
+          (inquiry) => `
+            <article class="admin-card">
+              <div class="admin-card-head">
+                <h3>${escapeHTML(inquiry.name)}</h3>
+                <time>${escapeHTML(new Date(inquiry.created_at).toLocaleString())}</time>
+              </div>
+              <div class="admin-contact-links">
+                ${
+                  inquiry.phone
+                    ? `<a class="admin-contact-link" href="tel:${escapeHTML(inquiry.phone)}">${escapeHTML(inquiry.phone)}</a>`
+                    : ""
+                }
+                <a class="admin-contact-link" href="mailto:${escapeHTML(inquiry.email)}">${escapeHTML(inquiry.email)}</a>
+              </div>
+              <p class="admin-message">${escapeHTML(inquiry.message)}</p>
+              <div class="admin-card-actions">
+                <a class="button button-secondary" href="mailto:${escapeHTML(inquiry.email)}?subject=${encodeURIComponent(
+                  `Reply from Everest Studio & Media`
+                )}">Reply by email</a>
+                ${
+                  inquiry.phone
+                    ? `<a class="button button-secondary" href="tel:${escapeHTML(inquiry.phone)}">Call contact</a>`
+                    : ""
+                }
+              </div>
+            </article>
+          `
+        )
+        .join("");
+    } catch (error) {
       empty.hidden = false;
-      empty.textContent = "No inquiries yet.";
-      list.innerHTML = "";
-      return;
+      empty.textContent = error.message;
+    } finally {
+      if (refreshButton) {
+        refreshButton.disabled = false;
+        refreshButton.textContent = "Refresh";
+      }
     }
-
-    empty.hidden = true;
-    list.innerHTML = payload.inquiries
-      .map(
-        (inquiry) => `
-          <article class="admin-card">
-            <div class="admin-card-head">
-              <h3>${escapeHTML(inquiry.name)}</h3>
-              <time>${escapeHTML(new Date(inquiry.created_at).toLocaleString())}</time>
-            </div>
-            <p class="admin-phone">${escapeHTML(inquiry.phone || "")}</p>
-            <p class="admin-email">${escapeHTML(inquiry.email)}</p>
-            <p class="admin-message">${escapeHTML(inquiry.message)}</p>
-          </article>
-        `
-      )
-      .join("");
-  } catch (error) {
-    empty.hidden = false;
-    empty.textContent = error.message;
   }
+
+  refreshButton?.addEventListener("click", renderInquiries);
+  await renderInquiries();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
